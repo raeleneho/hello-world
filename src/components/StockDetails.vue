@@ -28,15 +28,18 @@
 
         
         <Popup v-show="isModalVisible" @close="closeModal"
-        @submit="add">
+        @submit="addTab">
           <h4>Create Watchlist</h4>
-          
+          <input
+            v-model="newWatchList"
+           type="text">
+<!--           
           <BaseInput
             v-model="newWatchlist" 
             class="input-style"
             label="Watchlist"
             type="text"
-          /> 
+          />  -->
         </Popup>
 
       </div>
@@ -72,10 +75,10 @@
 
 import Button from "./Button.vue";
 import DropDown from "./DropDown.vue";
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 import BarGraph from './BarGraph.vue';
 import Popup from './Popup.vue'
-import BaseInput from './BaseInput.vue';
+// import BaseInput from './BaseInput.vue';
 export default {
   name: "StockDetails",
   data() {
@@ -87,7 +90,7 @@ export default {
         dateRange: 5,
         buttonLabel: " + Follow",
         isModalVisible: false,
-        newWatchlist: "asdff",
+        newWatchList: "",
       };
     },
   components: {
@@ -95,7 +98,7 @@ export default {
     BarGraph,
     Button,
     Popup,
-    BaseInput,
+    // BaseInput,
   },
 
   computed: {
@@ -205,6 +208,13 @@ export default {
   },
 
   methods: {
+
+    // addTab(){
+    //   this.$store.dispatch('addTab', this.newWatchList)
+    // }
+    // the same as 
+
+    ...mapActions(['addTab']),
 
     showModal(){
       this.isModalVisible = true;

@@ -7,7 +7,7 @@
     />
     <StockProfileCard v-if="loaded" />
 
-    <TabCard />
+    <Tabs @tab-select="selectTab($event)"/>
     
   </div>
 </template>
@@ -15,7 +15,7 @@
 <script>
 import Header from "./components/Header.vue";
 import StockSearch from "./components/StockSearch.vue";
-import TabCard from "./components/TabCard.vue";
+import Tabs from "./components/Tabs.vue";
 import StockDetails from "./components/StockDetails.vue";
 import StockProfileCard from "./components/StockProfileCard.vue";
 
@@ -28,7 +28,7 @@ export default {
     StockDetails,
     StockSearch,
     StockProfileCard,
-    TabCard,
+    Tabs,
   },
   data() {
     return {
@@ -37,7 +37,7 @@ export default {
         height: "400px",
         position: "relative",
       },
-      initialTab: "Watchlist 1",
+      currentTab: 0,
     };
   },
   computed: {
@@ -46,7 +46,13 @@ export default {
     ])
   },
   methods: {
+    selectTab(selectedTab) {
+      this.currentTab = selectedTab;
+      console.log(this.currentTab)
+    },
+
     ...mapActions(['fetchStocks']),
+    
   },
 };
 </script>

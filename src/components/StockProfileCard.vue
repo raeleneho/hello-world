@@ -145,7 +145,6 @@ export default {
     text-align: right;
     overflow: hidden;
     display: flex;
-    -webkit-box-align: center;
     box-align: center;
     align-items: center;
 
