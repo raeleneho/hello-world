@@ -37,7 +37,7 @@ export default {
         height: "400px",
         position: "relative",
       },
-      currentTab: 0,
+      currentTab: null,
     };
   },
   computed: {

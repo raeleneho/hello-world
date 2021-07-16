@@ -8,11 +8,13 @@ export default createStore({
     loaded: false,
     stockCurrency: {},
     stockProfile: {},
+    newWatchList: "",
     tabs: [
-      {
-        tabName: "",
-        stocks: [], //<--- object of stock name, stock price, % price difference
-      },
+      // {
+        // tabName: "",
+        // stocks: [],
+        //<--- object of stock name, stock price, % price difference
+      // }
     ],
   },
 
@@ -55,6 +57,11 @@ export default createStore({
     },
   },
   mutations: {
+
+    updateNewWatchList(state, payload) {
+      state.newWatchList = payload;
+    },
+
     changeCurrentStockPrices(state, payload) {
       state.currentStockPrices = payload;
     },
@@ -74,8 +81,14 @@ export default createStore({
       console.log(state.stockProfile);
     },
 
-    addTab(state, tab) {
-      state.tabs.push({ tab });
+    addTab(state) {
+      const newTab = {
+        // id: state.tabs[state.tabs.length - 1] + 1,
+        tabName: state.newWatchList,
+        stocks: []
+      }
+      state.tabs.push(newTab);
+      state.newWatchList = "";
       console.log(state.tabs)
     },
   },
@@ -133,8 +146,8 @@ export default createStore({
         }
       }
     },
-    addTab({ commit }, tab) {
-      commit('ADD_TAB', tab)
+    addTab({ commit }) {
+      commit('addTab')
     }
   },
 });

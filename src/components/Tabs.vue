@@ -32,28 +32,32 @@
 <script>
 export default {
   name: "Tabs",
-  // props: ['content'],
-  data () {
-    return {
-      // the index of the selected tab,
-              // all of the tabs
+  props: ['currentTab'],
+  // data () {
+  //   return {
+  //     // the index of the selected tab,
+  //             // all of the tabs
 
-      tabs: [
-        {
-          tabName: "New Tab 1",
-          stocks: [], //<--- object of stock name, stock price, % price difference
-        },
-        {
-          tabName: "New Tab 2",
-          stocks: [], //<--- object of stock name, stock price, % price difference
-        },
-        {
-          tabName: "New Tab 3",
-          stocks: [], //<--- object of stock name, stock price, % price difference
-        },
-     ],
-    }
-  },
+  //     tabs: [
+  //       {
+  //         tabName: "New Tab 1",
+  //         stocks: [], //<--- object of stock name, stock price, % price difference
+  //       },
+  //       {
+  //         tabName: "New Tab 2",
+  //         stocks: [], //<--- object of stock name, stock price, % price difference
+  //       },
+  //       {
+  //         tabName: "New Tab 3",
+  //         stocks: [], //<--- object of stock name, stock price, % price difference
+  //       },
+  //    ],
+  //   }
+  // },
+
+  computed: {
+    
+  }
 }
 
 </script>
@@ -68,7 +72,24 @@ export default {
   width: 360px;
 }
 
+button {
+  border: none;
+  padding: 10px 10px;
+  background-color: transparent;
+  flex-direction: row;
+  justify-content: center;
+}
 
+button:hover {
+  background-color: #e8f0fe;
+}
+
+.selected-tab {
+  background-color: #e8f0fe; 
+}
+.test-tab {
+  background-color: red;
+}
 .stats-row {
   border-top: 1px solid #dadce0;
   padding: 8px 0;

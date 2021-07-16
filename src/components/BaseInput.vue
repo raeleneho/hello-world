@@ -1,8 +1,8 @@
 <template>
-  <label>{{ label }}</label>
+  <label v-if="label">{{ label }}</label>
   <input 
   
-  :placeholder="label" :value="modalValue" @input="$emit('update:modalValue', $event.target.value)"
+  :placeholder="label" :value="modelValue" @input="$emit('update:modelValue', $event.target.value)"
   >
 
 </template>
@@ -14,9 +14,8 @@
         type: String,
         default: ''
       },
-      modalValue: {
+      modelValue: {
         type: [String, Number],
-        default: ''
       },
 
       inputStyle: {
